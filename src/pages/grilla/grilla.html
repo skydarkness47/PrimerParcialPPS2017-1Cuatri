@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Grilla</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Grilla harcodeada</h1>
+
+
+ <table>
+        <thead>
+            <th>Name</th>
+            <th>Index</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of USUARIOS">
+                <td>{{user.name}}</td>
+                <td>{{user.id}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+  <h1>Grilla firebase</h1>
+<ul>
+<li *ngFor="let item of items | async">
+  {{item.nombre}}
+</li>
+</ul>
+
+<h1>Grilla harcodeada</h1>
+
+
+
+</ion-content>
