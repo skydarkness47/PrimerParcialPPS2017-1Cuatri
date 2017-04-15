@@ -111,18 +111,23 @@
       
       
   
-    <ion-content padding class="triviaUno">
-     <h2 align="center"> ¿En que año argentina celebro el pacto de olivos?</h2>
+    <ion-content padding class="triviaUno" onload="Opciones()">
+      <form onload="Opciones()">
+     <h2 align="center">{{trivia}}</h2>
             <div align="center"><br>
-<input type="submit" align="center" (click) ="Opciones('1')" value="En 1995">    
+<input type="submit" align="center" id="opcion1" (click) ="Opciones('1')">    
 <br>
 <br>
 <br>
-<input type="submit" align="center" (click) ="Opciones('2')" value="En 1994">
+<input type="submit" align="center" id="opcion2" (click) ="Opciones('2')">
 <br>
 <br>
 <br>
-<input type="submit" align="center" (click) ="Opciones('3')" value="En 1992">
+<input type="submit" align="center" id="opcion3" (click) ="Opciones('3')">
+       
+        
         </div>
+
+         </form>
     </ion-content>
     
