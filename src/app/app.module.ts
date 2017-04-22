@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { Inicio } from '../pages/inicio/inicio';
 import { TabsPage } from '../pages/tabs/tabs';
 import {AngularFireModule} from 'angularfire2';
@@ -12,18 +11,23 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Grilla } from '../pages/grilla/grilla';
 import { TriviaUno } from '../pages/trivia-uno/trivia-uno';
-import { TriviaDos } from '../pages/trivia-dos/trivia-dos';
+import {Ganador} from '../pages/ganador/ganador';
+import {Usuario} from '../pages/usuario/usuario';
+import {Perdedor} from '../pages/perdedor/perdedor';
+import{Estadisticas} from '../pages/estadisticas/estadisticas';
+
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     Inicio,
     Grilla,
     TriviaUno,
-    TriviaDos,
-    TabsPage    
+    TabsPage,
+    Perdedor,
+    Estadisticas,
+    Ganador    
   ],
   imports: [
     BrowserModule,
@@ -35,16 +39,18 @@ import { TriviaDos } from '../pages/trivia-dos/trivia-dos';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     Inicio,
     Grilla,
     TriviaUno,
-    TriviaDos,
-    TabsPage
+    TabsPage,
+    Perdedor,
+    Estadisticas,
+    Ganador
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Usuario,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
