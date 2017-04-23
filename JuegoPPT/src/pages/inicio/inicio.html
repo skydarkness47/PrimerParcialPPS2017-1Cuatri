@@ -1,0 +1,28 @@
+
+
+<ion-header>
+  <ion-navbar class="navbarInicio">
+  
+    <ion-title id="titulo">Bienvenido al Piedra Papel o Tijera</ion-title>
+  </ion-navbar>
+  <div class="TextoInicio">
+      <h1>!Mucha suerte!</h1>
+   </div>
+</ion-header>
+
+
+<ion-content padding class="Login">
+    <h2 align="center">Ingrese nombre para jugar</h2>
+
+<p align="center"  class="texto">
+  
+  <input type="text" [(ngModel)] = "usu.nombre" >  
+</p>
+<div align="center">
+  <p>&nbsp;</p>
+  <p>
+    <input type="submit" align="center" (click) ="Ingreso()" value="Jugar">
+</p>
+</div>
+</ion-content>
+    
