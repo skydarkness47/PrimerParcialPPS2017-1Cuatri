@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import 'rxjs/Rx'; 
 import { NavController } from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
-import { Ppt } from '../ppt/ppt';
+import { TriviaUno } from '../trivia-uno/trivia-uno';
+import { Vibration } from '@ionic-native/vibration';
+import { NativeAudio } from '@ionic-native/native-audio';
+
 
 @Component({
   selector: 'page-inicio',
@@ -13,20 +16,18 @@ export class Inicio {
         Puntuacion:0,
         gano:false};
 
-      
+      tiempo:any;
 user : FirebaseListObservable<any[]>;
 
- constructor(public navCtrl: NavController,af: AngularFire) {
+ constructor(public navCtrl: NavController,af: AngularFire,private vibration: Vibration,private nativeAudio: NativeAudio) {
   this.user= af.database.list('/Usuarios');
-  
+     this.nativeAudio.preloadSimple('bienvenida', 'assets/sonidos/bienvenida.mp3');
+      
 }
-Usuario
-
          Ingreso(){
-           
-        //  this.user.push({
-          //  nombre:this.usu.nombre
-        //  })
-          this.navCtrl.push(Ppt,this.usu)  
+           this.nativeAudio.preloadSimple('bienvenida', 'assets/sonidos/bienvenida.mp3');     
+      this.nativeAudio.play('bienvenida', () => console.log('bienvenida is done playing'));
+            this.vibration.vibrate(900);
+            this.navCtrl.push(TriviaUno,this.usu)  
         }
 }

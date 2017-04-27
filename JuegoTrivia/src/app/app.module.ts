@@ -9,10 +9,12 @@ import {AngularFireModule} from 'angularfire2';
 import {firebaseconfig} from '../pages/firebase/firebase-config';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Ppt } from '../pages/ppt/ppt';
+import { TriviaUno } from '../pages/trivia-uno/trivia-uno';
 import {Ganador} from '../pages/ganador/ganador';
 import {Perdedor} from '../pages/perdedor/perdedor';
 import{Estadisticas} from '../pages/estadisticas/estadisticas';
+import { Vibration } from '@ionic-native/vibration';
+import { NativeAudio } from '@ionic-native/native-audio';
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import{Estadisticas} from '../pages/estadisticas/estadisticas';
     MyApp,
     AboutPage,
     Inicio,
-    Ppt,
+    TriviaUno,
     TabsPage,
     Perdedor,
     Estadisticas,
@@ -37,7 +39,7 @@ import{Estadisticas} from '../pages/estadisticas/estadisticas';
     MyApp,
     AboutPage,
     Inicio,
-    Ppt,
+    TriviaUno,
     TabsPage,
     Perdedor,
     Estadisticas,
@@ -46,6 +48,8 @@ import{Estadisticas} from '../pages/estadisticas/estadisticas';
   providers: [
     StatusBar,
     SplashScreen,
+    Vibration,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

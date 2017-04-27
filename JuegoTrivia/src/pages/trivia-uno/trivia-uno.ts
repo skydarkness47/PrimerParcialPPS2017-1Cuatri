@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{Ganador} from '../ganador/ganador';
 import{Perdedor } from '../perdedor/perdedor';
-interface Alber { something: string; }
+import { NativeAudio } from '@ionic-native/native-audio';
 
 @Component({
   selector: 'page-trivia-uno',
@@ -23,9 +23,13 @@ incorrectas:number;
         gano:false};
 
  
-  constructor(public navCtrl: NavController, public NavParams: NavParams) {
+  constructor(public navCtrl: NavController, public NavParams: NavParams,private nativeAudio: NativeAudio) {
     this.usu = NavParams.data;
-    
+          this.nativeAudio.preloadSimple('fallo', 'assets/sonidos/fallo.mp3');
+          this.nativeAudio.preloadSimple('ok', 'assets/sonidos/ok.mp3');
+           this.nativeAudio.preloadSimple('perdio', 'assets/sonidos/perdio.mp3'); 
+           this.nativeAudio.preloadSimple('gano', 'assets/sonidos/gano.mp3'); 
+
    
   }
 
@@ -68,56 +72,81 @@ incorrectas:number;
   }
 
 VerificarPregunta(respuesta){
-
     if(this.preguntas == 1){
        if(respuesta == 3)
           {
+            this.nativeAudio.play('ok', () => console.log('bienvenida is done playing'));
             this.puntuacion = this.puntuacion+1;
             this.preguntas = this.preguntas+1;
             this.correctas = this.correctas+1;
-            this.preguntaDos();
+            setTimeout(() => {
+              this.preguntaDos();
+            }, 1000);
+            
           }else{
+            this.nativeAudio.play('fallo', () => console.log('bienvenida is done playing'));
             this.preguntas = this.preguntas+1;
             this.incorrectas = this.incorrectas+1;
-            this.preguntaDos();
+               setTimeout(() => {
+              this.preguntaDos();
+                }, 1000)
           }
      }else if (this.preguntas == 2){
        console.log("estoy en respuesta",respuesta);
              if(respuesta == 1)
                 {
+                  this.nativeAudio.play('ok', () => console.log('bienvenida is done playing'));
                   this.puntuacion = this.puntuacion+1;
                   this.preguntas = this.preguntas+1;
                   this.correctas = this.correctas+1;
-                  this.preguntaTres();
+                        setTimeout(() => {
+                    this.preguntaTres();
+                      }, 1000)
+                  
                 }else{
+                  this.nativeAudio.play('fallo', () => console.log('bienvenida is done playing'));
                   this.preguntas = this.preguntas+1;
                   this.incorrectas = this.incorrectas+1;
-                  this.preguntaTres();
+                    setTimeout(() => {
+                    this.preguntaTres();
+                      }, 1000)
                 }
      }else if (this.preguntas ==3){
              if(respuesta == 3)
                 {
+                  this.nativeAudio.play('ok', () => console.log('bienvenida is done playing'));
                   this.puntuacion = this.puntuacion+1;
                   this.preguntas = this.preguntas+1;
                   this.correctas = this.correctas+1;
-                this.preguntaCuatro();
-                }else{
+                  setTimeout(() => {
+                    this.preguntaCuatro();
+                      }, 1000)
+              }else{
+                this.nativeAudio.play('fallo', () => console.log('bienvenida is done playing'));
                   this.preguntas = this.preguntas+1;
                   this.incorrectas = this.incorrectas+1;
-                this.preguntaCuatro();
+                  setTimeout(() => {
+                    this.preguntaCuatro();
+                      }, 1000)
                 }
 
      }else if (this.preguntas ==4){
              if(respuesta == 2)
                 {
+                  this.nativeAudio.play('ok', () => console.log('bienvenida is done playing'));
                   this.puntuacion = this.puntuacion+1;
                   this.preguntas = this.preguntas+1;
                   this.correctas = this.correctas+1;
-                  this.preguntaCinco();
+                    setTimeout(() => {
+                    this.preguntaCinco();
+                      }, 1000)
                 }else{
+                  this.nativeAudio.play('fallo', () => console.log('bienvenida is done playing'));
                   this.preguntas = this.preguntas+1;
                   this.incorrectas = this.incorrectas+1;
-                  this.preguntaCinco();
+                    setTimeout(() => {
+                    this.preguntaCinco();
+                      }, 1000)
               }
 
      }else if (this.preguntas ==5){
@@ -128,6 +157,7 @@ VerificarPregunta(respuesta){
                   this.correctas = this.correctas+1;
                   this.GanoONo();
                  }else{
+                   this.nativeAudio.play('fallo', () => console.log('bienvenida is done playing'));
                    this.incorrectas = this.incorrectas+1;
                     this.GanoONo();
                 }
@@ -142,16 +172,20 @@ VerificarPregunta(respuesta){
         this.usu.Puntuacion=this.puntuacion;
         this.usu.incorrectas= this.incorrectas;
         this.usu.Correctas = this.correctas;
-              this.navCtrl.push(Ganador,this.usu)  
+               setTimeout(() => {
+               this.navCtrl.push(Ganador,this.usu);  
+            }, 1000);  
 
 
     }else{
-
        this.usu.gano=false;
         this.usu.Puntuacion=this.puntuacion;
         this.usu.incorrectas= this.incorrectas;
         this.usu.Correctas = this.correctas;
-              this.navCtrl.push(Perdedor,this.usu)  
+         setTimeout(() => {
+               this.navCtrl.push(Perdedor,this.usu);  
+            }, 1000);
+              
       
     }
   }

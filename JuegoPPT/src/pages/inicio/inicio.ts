@@ -3,6 +3,8 @@ import 'rxjs/Rx';
 import { NavController } from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import { Ppt } from '../ppt/ppt';
+import { NativeAudio } from '@ionic-native/native-audio';
+
 
 @Component({
   selector: 'page-inicio',
@@ -16,17 +18,23 @@ export class Inicio {
       
 user : FirebaseListObservable<any[]>;
 
- constructor(public navCtrl: NavController,af: AngularFire) {
-  this.user= af.database.list('/Usuarios');
-  
+ constructor(public navCtrl: NavController,af: AngularFire,private nativeAudio: NativeAudio) {
+               this.nativeAudio.preloadSimple('bienvenida', 'assets/sonidos/bienvenida.mp3');
+console.info(this.getDay());
 }
-Usuario
+getDay()
+    {
+        var Wday: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var day = new Date();
+        var TodayDay = Wday[day.getDay()];   
+        var span = document.createElement("span");
+        span.style.color = "Blue";
+        span.innerText = "getDay Method \n Today Day is-> " + TodayDay + "\n";
+        document.body.appendChild(span);
+    }
 
          Ingreso(){
-           
-        //  this.user.push({
-          //  nombre:this.usu.nombre
-        //  })
+            this.nativeAudio.play('bienvenida', () => console.log('bienvenida is done playing'));
           this.navCtrl.push(Ppt,this.usu)  
         }
 }

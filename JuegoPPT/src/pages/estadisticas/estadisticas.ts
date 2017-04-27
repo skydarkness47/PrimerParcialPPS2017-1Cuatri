@@ -9,31 +9,28 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
   templateUrl: 'estadisticas.html',
 })
 export class Estadisticas {
-  usu = { nombre:'',
-        Puntuacion:0,
-        Correctas:0,
-        incorrectas:0,
-        gano:false};
-  Gano={};
+   usu = {
+        nombre: '',
+        Puntuacion: 0,
+        puntosUser: 0,
+        puntosMaq: 0,
+        gano: false
+
+    };
 
   user : FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public NavParams: NavParams,af: AngularFire) {
-      this.user= af.database.list('/Usuarios');
+      this.user= af.database.list('/UsuariosPpt');
     this.usu = this.NavParams.data;
-     
-    if(this.usu.gano==true){
-      this.Gano="Gano";
-    }else{
-      this.Gano="Perdio";
-    }
-
+    console.log(this.usu);
      this.user.push({
            Nombre:this.usu.nombre,
            Puntuacion:this.usu.Puntuacion,
-           Correctas:this.usu.Correctas,
-           Incorrectas:this.usu.incorrectas,
-           Gano:this.Gano
+           puntosMaq:this.usu.puntosMaq,
+           puntosUser:this.usu.puntosUser,
+           Gano:this.usu.gano,
+           Fecha:Date.now()
           })
   }
   

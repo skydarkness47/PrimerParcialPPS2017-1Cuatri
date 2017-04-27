@@ -19,7 +19,7 @@ export class Estadisticas {
   user : FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public NavParams: NavParams,af: AngularFire) {
-      this.user= af.database.list('/Usuarios');
+      this.user= af.database.list('/UsuariosTrivia');
     this.usu = this.NavParams.data;
      
     if(this.usu.gano==true){

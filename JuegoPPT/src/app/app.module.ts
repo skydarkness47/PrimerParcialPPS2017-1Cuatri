@@ -13,7 +13,8 @@ import { Ppt } from '../pages/ppt/ppt';
 import {Ganador} from '../pages/ganador/ganador';
 import {Perdedor} from '../pages/perdedor/perdedor';
 import{Estadisticas} from '../pages/estadisticas/estadisticas';
-
+import { NativeAudio } from '@ionic-native/native-audio';
+import {Antecedentes} from '../pages/antecedentes/antecedentes';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import{Estadisticas} from '../pages/estadisticas/estadisticas';
     TabsPage,
     Perdedor,
     Estadisticas,
+    Antecedentes,
     Ganador    
   ],
   imports: [
@@ -41,11 +43,13 @@ import{Estadisticas} from '../pages/estadisticas/estadisticas';
     TabsPage,
     Perdedor,
     Estadisticas,
+    Antecedentes,
     Ganador
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

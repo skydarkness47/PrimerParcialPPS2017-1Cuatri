@@ -21,9 +21,16 @@
       </div>
 
             <div align="center" *ngIf="vMaquina">
-          <img src="assets/img/vs.png" width=80 height=80>
+              <p>&nbsp;</p>
+              <p><img [src]=imgVS width=80 height=80>
+              </p>
               <h2>{{jugo}}</h2>
-                   <img [src]=imgMaq width=80 height=80> 
-        </div>
+                   <p>&nbsp;</p>
+                   <p><img [src]=imgMaq width=80 height=80> 
+                   </p>
+                   <div *ngIf="vEstadisticas">
+                     <br>
+              </div>
+      </div>
 
     </ion-content>
