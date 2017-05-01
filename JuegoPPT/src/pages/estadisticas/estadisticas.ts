@@ -14,23 +14,25 @@ export class Estadisticas {
         Puntuacion: 0,
         puntosUser: 0,
         puntosMaq: 0,
-        gano: false
-
+        gano: ''
     };
-
+    Gano:string;
+fecha:string;
+dato:any;
   user : FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public NavParams: NavParams,af: AngularFire) {
       this.user= af.database.list('/UsuariosPpt');
+      console.log(this.NavParams.data);
+      this.fecha = new Date().toString();
     this.usu = this.NavParams.data;
-    console.log(this.usu);
      this.user.push({
+           fecha:this.fecha,
            Nombre:this.usu.nombre,
            Puntuacion:this.usu.Puntuacion,
-           puntosMaq:this.usu.puntosMaq,
-           puntosUser:this.usu.puntosUser,
-           Gano:this.usu.gano,
-           Fecha:Date.now()
+           PuntosMaq:this.usu.puntosMaq,
+           PuntosUser:this.usu.puntosUser,
+           Gano:this.usu.gano
           })
   }
   

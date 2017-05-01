@@ -12,21 +12,20 @@
 
 
 <ion-content padding class="Login">
-  
-<table>
-
-  
-        <thead>
-            <th>Name</th>
-            <th>Index</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of USUARIOS">
-                <td>{{user.name}}</td>
-                <td>{{user.fecha}}</td>
-            </tr>
-        </tbody>
-    </table>
-
+<div align="center">
+  <strong>ultimos 5 usuarios que ganaron</strong>
+       <ul *ngFor="let user of USUARIOS | async"> 
+            <p  *ngIf="user.Gano == 'Gano'" > <strong>{{user.Nombre}}:</strong>{{user.fecha}}</p>
+             </ul> 
+    <strong>ultimos 5 usuarios que empataron</strong>
+       <ul *ngFor="let user of USUARIOS | async"> 
+            <p  *ngIf="user.Gano == 'Empato'" > <strong>{{user.Nombre}}:</strong>{{user.fecha}}</p>
+             </ul> 
+     <strong>ultimos 5 usuarios que perdieron</strong>
+       <ul *ngFor="let user of USUARIOS | async"> 
+            <p  *ngIf="user.Gano == 'Perdio'" > <strong>{{user.Nombre}}:</strong>{{user.fecha}}</p>
+             </ul> 
+             
+</div>
 </ion-content>
     

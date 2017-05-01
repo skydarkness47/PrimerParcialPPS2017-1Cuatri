@@ -12,10 +12,10 @@ import { NativeAudio } from '@ionic-native/native-audio';
 })
 export class Antecedentes {
       
-user : FirebaseListObservable<any[]>;
+USUARIOS : FirebaseListObservable<any[]>;
 
  constructor(public navCtrl: NavController,af: AngularFire,private nativeAudio: NativeAudio) {
-  this.user= af.database.list('/Usuarios');
+  this.USUARIOS= af.database.list('/UsuariosPpt');
     }
 
 }

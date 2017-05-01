@@ -15,18 +15,26 @@
   
     <ion-content padding class="triviaUno">
       <div align="center" *ngIf="vJuego">
-     <img src="assets/img/piedra.png" width=80 height=80 (click)="Jugo('piedra')" >
-     <img src="assets/img/papel.png" width=80 height=80 (click)="Jugo('papel')"> 
-     <img src="assets/img/tijera.png" width=80 height=80  (click)="Jugo('tijera')"> 
+     <img src="assets/img/piedra.png" width=100 height=100 (click)="Jugo('piedra')" >
+     <img src="assets/img/papel.png" width=100 height=100 (click)="Jugo('papel')"> 
+     <img src="assets/img/tijera.png" width=100 height=100  (click)="Jugo('tijera')"> 
+      </div>
+      <div align="center" *ngIf="vJuegoPiedra">
+     <img src="assets/img/piedra.png" width=100 height=100 (click)="Jugo('piedra')" >
+      </div>
+       <div align="center" *ngIf="vJuegoPapel">
+     <img src="assets/img/papel.png" width=100 height=100 (click)="Jugo('papel')"> 
+      </div>
+       <div align="center" *ngIf="vJuegoTijera">
+     <img src="assets/img/tijera.png" width=100 height=100  (click)="Jugo('tijera')"> 
       </div>
 
             <div align="center" *ngIf="vMaquina">
-              <p>&nbsp;</p>
-              <p><img [src]=imgVS width=80 height=80>
+              <p><img [src]=imgVS width=100 height=100>
               </p>
               <h2>{{jugo}}</h2>
                    <p>&nbsp;</p>
-                   <p><img [src]=imgMaq width=80 height=80> 
+                   <p><img [src]=imgMaq width=100 height=100> 
                    </p>
                    <div *ngIf="vEstadisticas">
                      <br>
