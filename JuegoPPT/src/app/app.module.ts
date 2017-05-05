@@ -15,6 +15,7 @@ import {Perdedor} from '../pages/perdedor/perdedor';
 import{Estadisticas} from '../pages/estadisticas/estadisticas';
 import { NativeAudio } from '@ionic-native/native-audio';
 import {Antecedentes} from '../pages/antecedentes/antecedentes';
+import {UltimosUsuarios} from '../pages/UltimosUsuarios/UltimosUsuarios';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {Antecedentes} from '../pages/antecedentes/antecedentes';
     Perdedor,
     Estadisticas,
     Antecedentes,
-    Ganador    
+    Ganador,
+    UltimosUsuarios
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {Antecedentes} from '../pages/antecedentes/antecedentes';
     Perdedor,
     Estadisticas,
     Antecedentes,
-    Ganador
+    Ganador,
+    UltimosUsuarios
   ],
   providers: [
     StatusBar,

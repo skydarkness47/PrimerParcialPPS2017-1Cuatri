@@ -1,31 +1,24 @@
-
-
 <ion-header>
-  <ion-navbar class="navbarInicio">
-  
-    <ion-title id="titulo">Estadisticas del juego</ion-title>
+  <ion-navbar>
+    <ion-title>Ultimos jugados</ion-title>
   </ion-navbar>
-  <div class="TextoInicio">
-      <h1>Estadisticas del juego</h1>
-   </div>
 </ion-header>
 
+<ion-content>
 
-<ion-content padding class="Login">
-<div align="center">
-  <strong>ultimos 5 usuarios que ganaron</strong>
-       <ul *ngFor="let user of USUARIOS | async"> 
-            <p  *ngIf="user.Gano == 'Gano'" > <strong>{{user.Nombre}}:</strong>{{user.fecha}}</p>
-             </ul> 
-    <strong>ultimos 5 usuarios que empataron</strong>
-       <ul *ngFor="let user of USUARIOS | async"> 
-            <p  *ngIf="user.Gano == 'Empato'" > <strong>{{user.Nombre}}:</strong>{{user.fecha}}</p>
-             </ul> 
-     <strong>ultimos 5 usuarios que perdieron</strong>
-       <ul *ngFor="let user of USUARIOS | async"> 
-            <p  *ngIf="user.Gano == 'Perdio'" > <strong>{{user.Nombre}}:</strong>{{user.fecha}}</p>
-             </ul> 
-             
-</div>
+  <ion-list>
+    <ion-list-header>
+      Ultimos Jugadores
+    </ion-list-header>
+    <a ion-item (click)="AbrirModal('Gano')">
+      Ganadores
+    </a>
+    <a ion-item (click)="AbrirModal('Perdio')">
+      Perdedores
+    </a>
+    <a ion-item (click)="AbrirModal('Empato')">
+      Empatados
+    </a>
+  </ion-list>
+
 </ion-content>
-    
